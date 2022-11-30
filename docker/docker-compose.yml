@@ -1,0 +1,20 @@
+version: "3"
+services: 
+  nginx: 
+    image: nginx
+    container_name: nginx
+    volumes: 
+    - ./sh:/sh
+    ports: 
+    - "80:80"
+    privileged: true
+    command: ./sh/ping.sh
+    
+  nginx_new:
+    image: b1xcy/nginx_test:new
+    container_name: b1xcy
+    ports:
+    - "8080:80"
+    volumes: 
+    - ./sh:/sh
+    privileged: true
